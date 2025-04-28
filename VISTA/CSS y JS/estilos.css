@@ -1,0 +1,47 @@
+
+.Nosotros{
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+padding-top: 25px;
+}
+
+.texto{
+padding-bottom: 1px;
+}
+
+.txtTitulo{
+font-family: fantasy;
+color: white;    
+padding-bottom: 200px;
+font-size: 50px;
+}
+
+.container-iframe {
+    text-align: center;
+  }
+
+  .logo{
+    padding-left: 10px;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+  
+  .card-body a.btn { 
+    display: block; 
+    margin: 0 auto;
+  }
+
+  .titulos{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    padding-top: 30px;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  input {
+    margin-bottom: 10px; /* Espaciado entre líneas */
+}

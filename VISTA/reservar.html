@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas y Paquetes</title>
+    <link rel="stylesheet" href="CSS y JS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS y JS/estilos.css">
+    <script type="text/javascript" src="CSS y JS/script.js"></script>
+    <script>
+        function setCrudOperation(operation) {
+            document.getElementById('crudOperation').value = operation;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Consultar</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Precio $37 por persona</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="numero2">Ingresar número de personas:</label>
+                        <input type="number" class="form-control" id="numero2">
+                    </div>
+                    <input type="hidden" id="numero1" value="37">
+                    <button type="button" class="btn btn-primary" onclick="mostrarResultado()">Precio Total</button>
+                    <br><br>
+                    <button type="button" class="btn btn-secondary" onclick="alerta()">Promociones del Mes</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dólares</td>
+                            <td><input type="number" class="form-control" id="resultado" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sección de Reserva -->
+        <h2 class="my-4">Formulario de Reserva</h2>
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form id="reservaForm" action="../CONTROLADOR/reservaControlador.php" method="POST">
+                            <div class="form-group">
+                                <label for="docIdentidad">Documento de Identidad:</label>
+                                <input type="text" class="form-control" id="docIdentidad" name="docIdentidadC" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoPago">Tipo de Pago:</label>
+                                <select class="form-control" id="tipoPago" name="tipoPago" required>
+                                    <option value="tarjeta">Tarjeta</option>
+                                    <option value="efectivo">Efectivo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad:</label>
+                                <input type="number" class="form-control" id="cantidad" name="cantidad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="totalVenta">Total Venta:</label>
+                                <input type="number" class="form-control" id="totalVenta" name="totalVenta" required>
+                            </div>
+                            <input type="hidden" id="crudOperation" name="crud_operation" value="">
+                            <button type="submit" class="btn btn-primary" onclick="setCrudOperation('create')">Crear</button>
+                            <button type="submit" class="btn btn-primary" onclick="setCrudOperation('update')">Modificar</button>
+                            <button type="submit" class="btn btn-primary" onclick="setCrudOperation('buscar')">Buscar</button>
+                            <button type="submit" class="btn btn-primary" onclick="setCrudOperation('listar')">Listar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Documento de Identidad</th>
+                            <th>Código de Empleado</th>
+                            <th>Fecha</th>
+                            <th>Tipo de Pago</th>
+                            <th>Cantidad</th>
+                            <th>Total Venta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservaTableBody">
+                        <!-- Aquí se insertarán las filas de la tabla -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sección de Paquete -->
+        <h2 class="my-4">Formulario de Paquete</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="paqueteForm">
+                    <div class="form-group">
+                        <label for="nombreP">Nombre del Paquete:</label>
+                        <select class="form-control" id="nombreP" required>
+                            <option value="paquete1">Paquete 1</option>
+                            <option value="paquete2">Paquete 2</option>
+                            <option value="paquete3">Paquete 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio:</label>
+                        <input type="number" class="form-control" id="precio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="costo">Costo:</label>
+                        <input type="number" class="form-control" id="costo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" class="form-control" id="ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaInicio">Fecha de Inicio:</label>
+                        <input type="date" class="form-control" id="fechaInicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaTermina">Fecha de Termino:</label>
+                        <input type="date" class="form-control" id="fechaTermina" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <input type="text" class="form-control" id="categoria" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cupos">Cupos:</label>
+                        <input type="number" class="form-control" id="cupos" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="vigencia">Vigencia:</label>
+                        <input type="text" class="form-control" id="vigencia" readonly>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="crearPaquete()">Crear</button>
+                    <button type="button" class="btn btn-primary" onclick="crearReserva()">Modificar</button>
+                    <button type="button" class="btn btn-primary" onclick="crearReserva()">Buscar</button>
+                    <button type="button" class="btn btn-primary" onclick="crearReserva()">Listar</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Paquete</th>
+                            <th>Precio</th>
+                            <th>Costo</th>
+                            <th>Ciudad</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha de Termino</th>
+                            <th>Categoría</th>
+                            <th>Cupos</th>
+                            <th>Vigencia</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paqueteTableBody">
+                        <!-- Aquí se insertarán las filas de la tabla -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+      
+  </body>
+</html>
