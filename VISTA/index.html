@@ -138,101 +138,147 @@
       </div>
     </div>
   </section>
-<!--Cotización  -->
-<section class="mx-auto my-5" style="max-width: 480px;">
-  <div class="card shadow-lg border-0 overflow-hidden">
-    <div class="card-body p-4">
-      <h4 class="card-title text-center mb-4">Cotiza tu Tour</h4>
-      <form id="formCotizar" class="row gy-3">
-        <div class="col-12 form-floating">
-          <select id="tourCot" name="tour" class="form-select" required>
-            <option value="" disabled selected>Elige un Tour</option>
-            <option value="machu_picchu" data-precio="300">Machu Picchu </option>
-            <option value="maras_salinera" data-precio="180">Maras Salineras </option>
-            <option value="montaña_7_colores" data-precio="220">Montaña de 7 Colores </option>
-          </select>
-          <label for="tourCot">Tour</label>
+
+   <!-- Cotización y Reserva -->
+   <section class="mx-auto my-5" style="max-width: 900px;">
+    <div class="card shadow-lg border-0 overflow-hidden">
+      <div class="card-body p-4">
+        <h4 class="card-title text-center mb-4">Cotiza y Reserva tu Tour</h4>
+
+        <!-- FORMULARIO Cotización + Reserva -->
+        <form id="formReserva" class="row gy-3">
+          <div class="col-12 form-floating">
+            <select id="tourSel" class="form-select" required>
+              <option value="" disabled selected>Elige un Tour</option>
+              <option value="Machu Picchu" data-precio="950">Machu Picchu</option>
+              <option value="Maras Salineras" data-precio="180">Maras Salineras </option>
+              <option value="Montaña de 7 Colores" data-precio="220">Montaña de 7 Colores </option>
+            </select>
+            <label for="tourSel">Tour</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="number" id="qty" class="form-control" min="1" required>
+            <label for="qty">Cantidad de Personas</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="email" id="email" class="form-control" placeholder=" " required>
+            <label for="email">Correo Electrónico</label>
+          </div>
+          <div class="col-12 form-floating">
+            <input type="tel" id="telefono" class="form-control" placeholder=" " pattern="\d{7,10}" required>
+            <label for="telefono">Teléfono</label>
+          </div>
+          <div class="col-6 text-center">
+            <button type="button" id="btnCotizar" class="btn btn-outline-info w-100">Calcular</button>
+          </div>
+          <div class="col-6 text-center">
+            <button type="button" id="btnReservar" class="btn btn-info w-100">Reservar</button>
+          </div>
+        </form>
+
+        <!-- Resultado de cotización -->
+        <div id="resultado" class="mt-4 text-center p-3 rounded opacity-0 transition-opacity"></div>
+
+        <hr class="my-4">
+
+        <!-- Historial -->
+        <h5 class="text-center mb-3">Ver Historial de Reservas</h5>
+        <div class="input-group mb-3">
+          <input type="email" id="emailHist" class="form-control" placeholder="Tu correo" required>
+          <button class="btn btn-secondary" id="btnHist">Ver Historial</button>
         </div>
-        <div class="col-12 form-floating">
-          <input type="number" id="cantCot" name="cantidad" class="form-control" min="1" required>
-          <label for="cantCot">Cantidad de Personas</label>
-        </div>
-        <div class="col-12 text-center">
-          <button type="button" id="btnCotizar" class="btn btn-primary px-5 py-2 position-relative overflow-hidden">
-            <span id="btnText">Calcular</span>
-            <span id="btnLoader" class="spinner-border spinner-border-sm position-absolute top-50 start-50 translate-middle d-none"></span>
-          </button>
-        </div>
-      </form>
-      <div id="resultadoCot" class="mt-4 text-center p-3 rounded opacity-0 transition-opacity"></div>
+        <ul id="historialList" class="list-group"></ul>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-  /* Fade-in para el resultado */
-  .transition-opacity {
-    transition: opacity 0.5s ease-in-out;
-  }
-  .opacity-1 {
-    opacity: 1 !important;
-  }
-  /* Animación de botón */
-  #btnCotizar:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s;
-  }
-  #btnCotizar:active {
-    transform: scale(0.95);
-  }
-</style>
+  <style>
+    .transition-opacity { transition: opacity .5s ease; }
+    .opacity-1 { opacity: 1 !important; }
+  </style>
 
-<!--  animaciones -->
-<script>
-  const btn = document.getElementById('btnCotizar');
-  const btnText = document.getElementById('btnText');
-  const btnLoader = document.getElementById('btnLoader');
-  const resultado = document.getElementById('resultadoCot');
+  <script>
+    // Helpers
+    const fadeIn = el => { el.classList.add('opacity-1'); };
+    const fadeOut = el => { el.classList.remove('opacity-1'); };
 
-  btn.addEventListener('click', () => {
-    // Mostrar loader
-    btnText.classList.add('visually-hidden');
-    btnLoader.classList.remove('d-none');
-    btn.disabled = true;
+    // Elementos
+    const tourSel = document.getElementById('tourSel');
+    const qty     = document.getElementById('qty');
+    const email   = document.getElementById('email');
+    const tel     = document.getElementById('telefono');
+    const btnCot  = document.getElementById('btnCotizar');
+    const btnRes  = document.getElementById('btnReservar');
+    const resDiv  = document.getElementById('resultado');
+    const emailH  = document.getElementById('emailHist');
+    const btnHist = document.getElementById('btnHist');
+    const histUl  = document.getElementById('historialList');
 
-    setTimeout(() => {
-      const select = document.getElementById('tourCot');
-      const cantidad = parseInt(document.getElementById('cantCot').value, 10);
-      const option = select.selectedOptions[0];
-      const tourName = option.textContent.split('—')[0].trim();
-      const precio = parseFloat(option.dataset.precio);
-
-      let contenido;
-      if (!option.value) {
-        contenido = '<div class="alert alert-warning mb-0">Selecciona un tour.</div>';
-      } else if (!cantidad || cantidad < 1) {
-        contenido = '<div class="alert alert-warning mb-0">Ingresa una cantidad válida.</div>';
+    // Calcular cotización
+    btnCot.addEventListener('click', () => {
+      const opt = tourSel.selectedOptions[0];
+      const p   = +opt.dataset.precio;
+      const n   = +qty.value;
+      if (!opt.value || !n) {
+        resDiv.innerHTML = '<div class="alert alert-warning mb-0">Selecciona tour y cantidad válidos.</div>';
       } else {
-        const total = precio * cantidad;
-        contenido = `
+        const tot = p * n;
+        resDiv.innerHTML = `
           <div class="alert alert-success mb-0">
-            <h5>${tourName}</h5>
-            <p>Personas: <strong>${cantidad}</strong></p>
-            <p>Precio unitario: <strong>S/ ${precio.toFixed(2)}</strong></p>
+            <p><strong>${opt.value}</strong></p>
+            <p>Personas: ${n}</p>
+            <p>Precio unitario: S/ ${p}</p>
             <hr>
-            <p class="mb-0">Total: <strong>S/ ${total.toFixed(2)}</strong></p>
+            <p><strong>Total: S/ ${tot}</strong></p>
           </div>`;
       }
+      fadeIn(resDiv);
+    });
 
-      resultado.innerHTML = contenido;
-      resultado.classList.add('opacity-1');
+    // Reservar y guardar en LocalStorage
+    btnRes.addEventListener('click', () => {
+      const opt = tourSel.selectedOptions[0];
+      const p   = +opt.dataset.precio;
+      const n   = +qty.value;
+      const em  = email.value.trim();
+      const ph  = tel.value.trim();
+      if (!opt.value || !n || !em || !ph) {
+        alert('Completa todos los campos.');
+        return;
+      }
+      const tot = p * n;
+      // Leer array existente
+      const arr = JSON.parse(localStorage.getItem('reservas')) || [];
+      arr.push({
+        tour: opt.value, personas: n, precio: p, total: tot,
+        correo: em, telefono: ph, fecha: new Date().toLocaleString()
+      });
+      localStorage.setItem('reservas', JSON.stringify(arr));
+      alert('Reserva guardada exitosamente.');
+      document.getElementById('formReserva').reset();
+      fadeOut(resDiv);
+    });
 
-      btnText.classList.remove('visually-hidden');
-      btnLoader.classList.add('d-none');
-      btn.disabled = false;
-    }, 600); // Duración animación
-  });
-</script>
+    // Mostrar historial por correo
+    btnHist.addEventListener('click', () => {
+      const em = emailH.value.trim();
+      const arr = JSON.parse(localStorage.getItem('reservas')) || [];
+      histUl.innerHTML = '';
+      const userRes = arr.filter(r => r.correo === em);
+      if (!userRes.length) {
+        histUl.innerHTML = '<li class="list-group-item">No hay reservas para este correo.</li>';
+      } else {
+        userRes.forEach(r => {
+          histUl.innerHTML += `
+            <li class="list-group-item">
+              <strong>${r.tour}</strong> — ${r.personas} personas — Total S/ ${r.total}<br>
+              <small>${r.fecha}</small>
+            </li>`;
+        });
+      }
+    });
+  </script>
 <!-- tdfn -->
 
 
