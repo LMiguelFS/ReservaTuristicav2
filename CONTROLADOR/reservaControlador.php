@@ -4,7 +4,7 @@ include('../MODELO/CReserva.php');
 
 // Verificar si se ha enviado una solicitud de operación CRUD
 if (isset($_POST["crud_operation"])) {
-    
+
     // Realizar la operación CRUD correspondiente
     realizarCRUD($_POST["crud_operation"], $conn);
 }
@@ -37,7 +37,8 @@ function realizarCRUD($operacion, $conn)
 
                 // Preparar y vincular los parámetros para la inserción
                 $consulta = $conn->prepare("INSERT INTO reserva (docidentidadC, idPaquete, codEmpleado, fecha, tipoPago, cantidad, totalVenta) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $consulta->bind_param("sssssid",
+                $consulta->bind_param(
+                    "sssssid",
                     $CReserva1->getDocIdentidadC(),
                     $CReserva1->getIdPaquete(),
                     $CReserva1->getCodEmpleado(),
@@ -59,7 +60,37 @@ function realizarCRUD($operacion, $conn)
                 echo "<script>alert('Por favor, complete todos los campos requeridos.');</script>";
             }
             break;
-        // Aquí podrías agregar otros casos para 'read', 'update' y 'delete'
+
+
+        case 'listar':
+            // Listar todas las reservas
+            header('Content-Type: application/json');
+            $consulta = $conn->prepare("SELECT * FROM creserva");
+            if ($consulta->execute()) {
+                $resultado = $consulta->get_result();
+                $reservas = [];
+                while ($fila = $resultado->fetch_assoc()) {
+                    $reservas[] = $fila;
+                }
+                echo json_encode($reservas);
+            } else {
+                echo json_encode([]);
+            }
+            $consulta->close();
+            break;
+
+        case 'reporte':
+            header('Content-Type: application/json');
+            $sql = "SELECT tipoPago, COUNT(*) as cantidad FROM creserva GROUP BY tipoPago";
+            $result = $conn->query($sql);
+            $labels = [];
+            $values = [];
+            while ($row = $result->fetch_assoc()) {
+                $labels[] = $row['tipoPago'];
+                $values[] = $row['cantidad'];
+            }
+            echo json_encode(['labels' => $labels, 'values' => $values]);
+            break;
     }
 
     // Cerrar la conexión al final

@@ -13,4 +13,3 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 }else{
     echo "Conexion exitosa";
 }*/
-?>
