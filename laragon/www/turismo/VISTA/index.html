@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>TRAVEL AGENCY CUSCO - Vive la Experiencia Andina Inolvidable</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+      }
+    }
+    @layer components {
+      .hero-section {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagenes/machupicchu.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Efecto parallax */
+      }
+      .nav-link-hover:hover {
+        @apply text-yellow-400; /* Un dorado que evoca lo inca */
+      }
+      .btn-primary {
+        @apply bg-orange-600 text-white px-8 py-4 rounded-full shadow-xl hover:bg-orange-700 transition duration-300 transform hover:scale-105 font-semibold text-lg tracking-wide;
+      }
+      .card-bg-subtle {
+        @apply bg-white bg-opacity-95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200; /* Sutil transparencia y blur */
+      }
+      .section-heading {
+        @apply text-5xl font-bold text-center mb-16 text-blue-800 tracking-tight;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-blue-50 text-gray-900">
+
+  <header class="bg-gray-900 text-white shadow-lg fixed w-full z-50 top-0">
+    <div class="container mx-auto flex items-center justify-between p-4 flex-wrap">
+      <div class="flex items-center gap-4">
+        <img src="imagenes/logo.png" alt="Logo Travel Agency Cusco" class="w-20 h-20 object-contain rounded-full border-2 border-yellow-500 p-1" />
+        <span class="text-3xl font-extrabold tracking-wider text-yellow-500">TRAVEL AGENCY CUSCO</span>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <ul class="flex flex-col md:flex-row gap-6 items-start md:items-center text-lg">
+          <li class="relative group">
+            
+          <li>
+            <a href="#" class="font-medium nav-link-hover">Quiénes Somos</a>
+          </li>
+          <li>
+            <a href="#" class="font-medium nav-link-hover">Contacto</a>
+          </li>
+          <li>
+          <a href="login.html" class="font-medium nav-link-hover">Iniciar sesión</a>
+         </li>
+
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24"> <section class="hero-section relative text-white text-center py-48 md:py-64 flex items-center justify-center">
+      <div class="container mx-auto px-4 z-10">
+        <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight animate-fade-in-down drop-shadow-lg">
+          La Magia de Cusco Te Espera
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-4xl mx-auto animate-fade-in-up">
+          Sumérgete en la historia, la cultura y la belleza natural del corazón de los Andes.
+          **TRAVEL AGENCY CUSCO** convierte tus sueños de viaje en realidad.
+        </p>
+        <a href="../VISTA/ver_paquetes.php" class="btn-primary animate-fade-in-up-delay">EMPIEZA TU AVENTURA</a>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+    </section>
+
+    ---
+
+    <section id="about-us" class="py-20 bg-gradient-to-b from-white to-blue-50">
+      <div class="container mx-auto px-4">
+        <h2 class="section-heading">¿Por Qué Elegirnos? Tu Viaje, Nuestra Pasión</h2>
+        <div class="grid md:grid-cols-3 gap-12">
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-blue-600 text-6xl mb-6">✨</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Experiencias Auténticas</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Vamos más allá de lo convencional. Creamos itinerarios únicos que te conectan con la verdadera alma de Cusco y su gente.
+            </p>
+          </div>
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-green-600 text-6xl mb-6">✅</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Guías Expertos y Locales</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Nuestros guías son apasionados conocedores de la historia y las tradiciones andinas, enriqueciendo cada paso de tu viaje.
+            </p>
+          </div>
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-purple-600 text-6xl mb-6">🛡️</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Tu Comodidad, Nuestra Prioridad</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Desde el transporte hasta el alojamiento, cada detalle está pensado para tu máxima seguridad y confort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    
+
+    <section class="py-20 bg-gradient-to-t from-gray-100 to-white">
+      <div class="container mx-auto px-4">
+        <h2 class="section-heading">Nuestros Viajeros Hablan por Sí Mismos</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Mi viaje a Cusco con TRAVEL AGENCY CUSCO fue una experiencia transformadora. La atención al detalle y la pasión de los guías hicieron que cada momento fuera mágico. ¡Altamente recomendados!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- Sofía R., Madrid</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Quedé fascinado con la organización y el conocimiento de nuestro guía. Descubrir la historia inca de la mano de expertos fue increíble. ¡Sin duda, la mejor agencia en Cusco!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- David M., New York</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Desde que aterricé en Cusco, supe que estaba en buenas manos. La amabilidad y profesionalismo del equipo de TRAVEL AGENCY CUSCO superaron todas mis expectativas. ¡Gracias por una aventura inolvidable!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- Carlos L., Lima</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ---
+
+    <section class="py-24 bg-blue-800 text-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="text-5xl md:text-6xl font-bold mb-8">¿Listo para Crear Recuerdos Inolvidables?</h2>
+        <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+          En **TRAVEL AGENCY CUSCO**, estamos listos para diseñar el viaje de tus sueños a la medida. Contacta con nosotros y comienza tu aventura.
+        </p>
+        <a href="#" class="btn-primary bg-white text-blue-800 hover:bg-gray-200">HABLEMOS DE TU VIAJE</a>
+      </div>
+    </section>
+
+  </main>
+
+  ---
+
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+      <div>
+        <h4 class="text-2xl font-bold text-yellow-500 mb-5">TRAVEL AGENCY CUSCO</h4>
+        <p class="text-base leading-relaxed">
+          Tu puerta de entrada a la mística tierra de los Incas. Ofrecemos experiencias auténticas y memorables en Cusco, Perú.
+        </p>
+        <p class="text-sm mt-4">&copy; 2025 TRAVEL AGENCY CUSCO. Todos los derechos reservados.</p>
+      </div>
+      <div>
+        <h4 class="text-2xl font-bold text-white mb-5">Explora</h4>
+        <ul class="space-y-3 text-base">
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Inicio</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Quiénes Somos</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Contacto</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-2xl font-bold text-white mb-5">Contáctanos</h4>
+        <ul class="space-y-3 text-base">
+          <li><a href="mailto:info@travelagencycusco.com" class="hover:text-yellow-400 transition-colors duration-200">info@travelagencycusco.com</a></li>
+          <li><a href="tel:+51912345678" class="hover:text-yellow-400 transition-colors duration-200">+51 912 345 678</a></li>
+          <li><span class="text-base">Av. El Sol 123, Cusco, Perú</span></li>
+        </ul>
+        <div class="flex justify-center md:justify-start gap-5 mt-6">
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="Facebook">
+            &#xf09a; </a>
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="Instagram">
+            &#xf16d; </a>
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="WhatsApp">
+            &#xf232; </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
