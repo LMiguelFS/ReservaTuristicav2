@@ -1,628 +1,196 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Agencia de Viajes Cusco</title>
-  <script type="text/javascript" src="CSS y JS/script.js"></script>
-  <link rel="stylesheet" href="CSS y JS/bootstrap.min.css">
-  <link rel="stylesheet" href="CSS y JS/estilos.css">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="height: 60px;">
-  <div class="container-fluid">
-    <img class="logo" src="imagenes/logo.png" alt="" width="60" height="60">
-    <a href="#" class="navbar-brand ms-3"><b>TRAVEL AGENCY CUSCO</b></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto me-3">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-             role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            TOURS DISPONIBLES
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="mapi.html">MACHU PICCHU</a></li>
-            <li><a class="dropdown-item" href="maras.html">MARAS SALINERAS</a></li>
-            <li><a class="dropdown-item" href="montaña.html">MONTAÑA DE 7 COLORES</a></li>
-          </ul>
-        </li>
-        <li class="nav-item d-flex align-items-center">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-      </ul>
-      <!-- Aquí van los botones -->
-      <div class="d-flex">
-        <a href="INICIAR%20SESSION.html" class="btn btn-outline-light me-2">Iniciar Sesión</a>
-        <a href="CATALOGO.HTML" class="btn btn-light me-2">Catálogo de Viajes</a>
-        <a href="adminLogin.html" class="btn btn-warning">Panel Administrador</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
-  <!-- Carousel -->
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="imagenes/machupicchu.webp" class="d-block w-100" alt="Machu Picchu">
-        <div class="carousel-caption text-center">
-          <h3 class="txtTitulo"><b>MACHU PICCHU</b></h3>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="imagenes/2.jpg" class="d-block w-100" alt="Maras Salineras">
-        <div class="carousel-caption text-center">
-          <h3 class="txtTitulo"><b>MARAS SALINERAS</b></h3>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="imagenes/1.jpg" class="d-block w-100" alt="Montaña de 7 Colores">
-        <div class="carousel-caption text-center">
-          <h3 class="txtTitulo"><b>MONTAÑA DE 7 COLORES</b></h3>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-
-  <!-- Presentación -->
-  <section class="services">
-    <div class="container py-5">
-      <div class="section-header text-center text-white">
-        <h2 class="Nosotros"><b>PAQUETES TURÍSTICOS CUSCO</b></h2>
-        <p class="texto">
-          Bienvenidos a Tour Cusco!! Nuestra empresa facilita tu visita a los destinos más importantes de Cusco.<br>
-          Encuentra información detallada y actualizada, reserva de forma inmediata y viaja tranquilo.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agencia de Viajes Cusco</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <!-- Custom CSS -->
-  <style>
-    :root {
-      --primary-color: #0d6efd;
-      --secondary-color: #6c757d;
-      --light-color: #f8f9fa;
-      --dark-color: #212529;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>TRAVEL AGENCY CUSCO - Vive la Experiencia Andina Inolvidable</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+      }
     }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--light-color);
-      color: var(--dark-color);
-    }
-
-    .navbar {
-      background-color: var(--dark-color);
-      padding: 1rem 0;
-    }
-
-    .navbar-brand {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .hero-section {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagenes/machupicchu.webp') center/cover no-repeat;
-      color: white;
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .tour-card {
-      transition: transform 0.3s ease;
-    }
-
-    .tour-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .reservation-section {
-      background-color: var(--light-color);
-      padding: 40px 0;
-    }
-
-    .reservation-card {
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .reservation-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .form-control:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-
-    .btn-custom {
-      background-color: var(--primary-color);
-      border-color: var(--primary-color);
-      transition: all 0.3s ease;
-    }
-
-    .btn-custom:hover {
-      background-color: #0b5ed7;
-      border-color: #0a58ca;
-      transform: translateY(-2px);
-    }
-
-    .price-badge {
-      font-size: 1.1rem;
-      padding: 8px 15px;
-    }
-
-    .history-item {
-      transition: all 0.2s ease;
-    }
-
-    .history-item:hover {
-      background-color: #e9ecef;
-      transform: scale(1.01);
-    }
-
-    @media (max-width: 768px) {
-      .reservation-card {
-        padding: 20px;
+    @layer components {
+      .hero-section {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagenes/machupicchu.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Efecto parallax */
+      }
+      .nav-link-hover:hover {
+        @apply text-yellow-400; /* Un dorado que evoca lo inca */
+      }
+      .btn-primary {
+        @apply bg-orange-600 text-white px-8 py-4 rounded-full shadow-xl hover:bg-orange-700 transition duration-300 transform hover:scale-105 font-semibold text-lg tracking-wide;
+      }
+      .card-bg-subtle {
+        @apply bg-white bg-opacity-95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200; /* Sutil transparencia y blur */
+      }
+      .section-heading {
+        @apply text-5xl font-bold text-center mb-16 text-blue-800 tracking-tight;
       }
     }
   </style>
 </head>
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <img class="logo" src="imagenes/logo.png" alt="Logo" width="100" height="100">
-        <a class="navbar-brand" href="#">TRAVEL AGENCY CUSCO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                TOURS DISPONIBLES
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="mapi.html">MACHU PICCHU</a></li>
-                <li><a class="dropdown-item" href="maras.html">MARAS SALINERAS</a></li>
-                <li><a class="dropdown-item" href="montaña.html">MONTAÑA DE 7 COLORES</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contacto <span class="visually-hidden">(+51 912 345 978)</span></a>
-            </li>
-          </ul>
-        </div>
+<body class="bg-gradient-to-br from-gray-100 to-blue-50 text-gray-900">
+
+  <header class="bg-gray-900 text-white shadow-lg fixed w-full z-50 top-0">
+    <div class="container mx-auto flex items-center justify-between p-4 flex-wrap">
+      <div class="flex items-center gap-4">
+        <img src="imagenes/logo.png" alt="Logo Travel Agency Cusco" class="w-20 h-20 object-contain rounded-full border-2 border-yellow-500 p-1" />
+        <span class="text-3xl font-extrabold tracking-wider text-yellow-500">TRAVEL AGENCY CUSCO</span>
       </div>
-    </nav>
+      <div class="mt-4 md:mt-0">
+        <ul class="flex flex-col md:flex-row gap-6 items-start md:items-center text-lg">
+          <li class="relative group">
+            
+          <li>
+            <a href="#" class="font-medium nav-link-hover">Quiénes Somos</a>
+          </li>
+          <li>
+            <a href="#" class="font-medium nav-link-hover">Contacto</a>
+          </li>
+          <li>
+            <a href="#" class="font-medium nav-link-hover">Preguntas Frecuentes</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="display-4">Descubre Cusco</h1>
-        <p class="lead">Bienvenidos a Tour Cusco!! Nuestra empresa facilita tu visita a los destinos más importantes de Cusco.</p>
+  <main class="pt-24"> <section class="hero-section relative text-white text-center py-48 md:py-64 flex items-center justify-center">
+      <div class="container mx-auto px-4 z-10">
+        <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight animate-fade-in-down drop-shadow-lg">
+          La Magia de Cusco Te Espera
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-4xl mx-auto animate-fade-in-up">
+          Sumérgete en la historia, la cultura y la belleza natural del corazón de los Andes.
+          **TRAVEL AGENCY CUSCO** convierte tus sueños de viaje en realidad.
+        </p>
+        <a href="../VISTA/ver_paquetes.php" class="btn-primary animate-fade-in-up-delay">EMPIEZA TU AVENTURA</a>
       </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
     </section>
 
-    <!-- Tours Section -->
-    <section class="container py-5">
-      <h2 class="text-center mb-4">Tours Disponibles</h2>
-      <div class="row gx-4 gy-4">
-        <!-- Machu Picchu -->
-        <div class="col-md-4">
-          <div class="card tour-card h-100 shadow-sm">
-            <img src="imagenes/3.jpg" class="card-img-top" alt="Machu Picchu">
-            <div class="card-body d-flex flex-column">
-              <h3 class="card-title">MACHU PICCHU</h3>
-              <p class="card-text flex-grow-1">
-                Sitio arqueológico inca más sobresaliente por su diseño urbano, arquitectura y fino trabajo en piedra.
-              </p>
-              <div class="mb-3">
-                <span class="badge bg-primary fs-6">S/ 950 por persona</span>
-              </div>
-              <a href="mapi.html" class="btn btn-primary mt-auto">CONOCER MÁS...</a>
-            </div>
+    ---
+
+    <section id="about-us" class="py-20 bg-gradient-to-b from-white to-blue-50">
+      <div class="container mx-auto px-4">
+        <h2 class="section-heading">¿Por Qué Elegirnos? Tu Viaje, Nuestra Pasión</h2>
+        <div class="grid md:grid-cols-3 gap-12">
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-blue-600 text-6xl mb-6">✨</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Experiencias Auténticas</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Vamos más allá de lo convencional. Creamos itinerarios únicos que te conectan con la verdadera alma de Cusco y su gente.
+            </p>
           </div>
-        </div>
-        <!-- Maras Salineras -->
-        <div class="col-md-4">
-          <div class="card tour-card h-100 shadow-sm">
-            <img src="imagenes/2.jpg" class="card-img-top" alt="Maras Salineras">
-            <div class="card-body d-flex flex-column">
-              <h3 class="card-title">MARAS SALINERAS</h3>
-              <p class="card-text flex-grow-1">
-                Piscinas de sal excavadas en la ladera de la montaña Qaqawiñay, a 46 km de Cusco en el Valle Sagrado.
-              </p>
-              <div class="mb-3">
-                <span class="badge bg-primary fs-6">S/ 180 por persona</span>
-              </div>
-              <a href="maras.html" class="btn btn-primary mt-auto">CONOCER MÁS...</a>
-            </div>
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-green-600 text-6xl mb-6">✅</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Guías Expertos y Locales</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Nuestros guías son apasionados conocedores de la historia y las tradiciones andinas, enriqueciendo cada paso de tu viaje.
+            </p>
           </div>
-        </div>
-        <!-- Montaña de 7 Colores -->
-        <div class="col-md-4">
-          <div class="card tour-card h-100 shadow-sm">
-            <img src="imagenes/1.jpg" class="card-img-top" alt="Montaña de 7 Colores">
-            <div class="card-body d-flex flex-column">
-              <h3 class="card-title">MONTAÑA DE 7 COLORES</h3>
-              <p class="card-text flex-grow-1">
-                Vinicunca, la montaña arcoíris, famosa por sus vetas minerales que forman un espectacular arcoíris natural.
-              </p>
-              <div class="mb-3">
-                <span class="badge bg-primary fs-6">S/ 220 por persona</span>
-              </div>
-              <a href="montaña.html" class="btn btn-primary mt-auto">CONOCER MÁS...</a>
-            </div>
+          <div class="p-8 card-bg-subtle text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-purple-600 text-6xl mb-6">🛡️</div>
+            <h3 class="text-3xl font-semibold mb-4 text-gray-800">Tu Comodidad, Nuestra Prioridad</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Desde el transporte hasta el alojamiento, cada detalle está pensado para tu máxima seguridad y confort.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Buttons Section -->
-    <section class="container py-5 text-center">
-      <div class="row justify-content-center">
-        <div class="col-md-4 mb-3">
-          <button type="button" class="btn btn-primary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#quoteModal">
-            <i class="bi bi-calculator"></i> Cotización
-          </button>
-        </div>
-        <div class="col-md-4 mb-3">
-          <button type="button" class="btn btn-success btn-lg w-100" data-bs-toggle="modal" data-bs-target="#reservationModal">
-            <i class="bi bi-calendar-check"></i> Reserva
-          </button>
-        </div>
-        <div class="col-md-4 mb-3">
-          <button type="button" class="btn btn-warning btn-lg w-100" data-bs-toggle="modal" data-bs-target="#paymentModal">
-            <i class="bi bi-credit-card"></i> Pago
-          </button>
+    ---
+
+    
+
+    <section class="py-20 bg-gradient-to-t from-gray-100 to-white">
+      <div class="container mx-auto px-4">
+        <h2 class="section-heading">Nuestros Viajeros Hablan por Sí Mismos</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Mi viaje a Cusco con TRAVEL AGENCY CUSCO fue una experiencia transformadora. La atención al detalle y la pasión de los guías hicieron que cada momento fuera mágico. ¡Altamente recomendados!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- Sofía R., Madrid</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Quedé fascinado con la organización y el conocimiento de nuestro guía. Descubrir la historia inca de la mano de expertos fue increíble. ¡Sin duda, la mejor agencia en Cusco!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- David M., New York</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+            <p class="text-gray-700 italic text-lg mb-6">
+              "Desde que aterricé en Cusco, supe que estaba en buenas manos. La amabilidad y profesionalismo del equipo de TRAVEL AGENCY CUSCO superaron todas mis expectativas. ¡Gracias por una aventura inolvidable!"
+            </p>
+            <p class="font-semibold text-gray-800 text-right">- Carlos L., Lima</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Historial de Reservas -->
-    <section class="container py-5">
-      <h2 class="text-center mb-4">Historial de Reservas</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="emailSearch" class="form-label">Buscar por Correo Electrónico</label>
-            <input type="email" class="form-control" id="emailSearch" placeholder="Ingrese su correo electrónico">
-          </div>
-          <button id="searchBtn" class="btn btn-primary">Buscar</button>
-        </div>
-      </div>
-      <div id="reservationHistory" class="mt-4">
-        <!-- Aquí se mostrarán las reservas -->
+    ---
+
+    <section class="py-24 bg-blue-800 text-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="text-5xl md:text-6xl font-bold mb-8">¿Listo para Crear Recuerdos Inolvidables?</h2>
+        <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+          En **TRAVEL AGENCY CUSCO**, estamos listos para diseñar el viaje de tus sueños a la medida. Contacta con nosotros y comienza tu aventura.
+        </p>
+        <a href="#" class="btn-primary bg-white text-blue-800 hover:bg-gray-200">HABLEMOS DE TU VIAJE</a>
       </div>
     </section>
 
-    <!-- Quote Modal -->
-    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title" id="quoteModalLabel"><i class="bi bi-calculator"></i> Cotización de Tours</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- Quote Form -->
-            <form id="quoteForm" class="row g-3 needs-validation" novalidate>
-              <div class="col-md-6">
-                <label for="tourSelect" class="form-label">Seleccione un Tour</label>
-                <select class="form-select" id="tourSelect" required>
-                  <option value="" disabled selected>Elige un destino</option>
-                  <option value="Machu Picchu" data-price="950">Machu Picchu - S/950</option>
-                  <option value="Maras Salineras" data-price="180">Maras Salineras - S/180</option>
-                  <option value="Montaña de 7 Colores" data-price="220">Montaña de 7 Colores - S/220</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor seleccione un tour.
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="peopleCount" class="form-label">Número de Personas</label>
-                <input type="number" class="form-control" id="peopleCount" min="1" value="1" required>
-                <div class="invalid-feedback">
-                  Por favor ingrese un número válido de personas.
-                </div>
-              </div>
-              <div class="col-12 d-flex justify-content-center mt-4">
-                <button type="button" id="calculateBtn" class="btn btn-outline-primary btn-lg px-4">
-                  <i class="bi bi-calculator"></i> Calcular Costo
-                </button>
-              </div>
-            </form>
-            <!-- Quote Result -->
-            <div id="quoteResult" class="mt-4 p-3 rounded bg-light d-none">
-              <h4 class="text-center mb-3">Detalle de Cotización</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <p><strong>Tour seleccionado:</strong> <span id="quoteTour"></span></p>
-                  <p><strong>Número de personas:</strong> <span id="quotePeople"></span></p>
-                </div>
-                <div class="col-md-6">
-                  <p><strong>Precio por persona:</strong> S/ <span id="quotePrice"></span></p>
-                  <p class="h4 text-primary"><strong>Total:</strong> S/ <span id="quoteTotal"></span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Reservation Modal -->
-    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title" id="reservationModalLabel"><i class="bi bi-calendar-check"></i> Reserva de Tours</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- Reservation Form -->
-            <form id="reservationForm" class="row g-3 needs-validation" novalidate>
-              <div class="col-md-6">
-                <label for="tourSelect" class="form-label">Seleccione un Tour</label>
-                <select class="form-select" id="tourSelect" required>
-                  <option value="" disabled selected>Elige un destino</option>
-                  <option value="Machu Picchu" data-price="950">Machu Picchu - S/950</option>
-                  <option value="Maras Salineras" data-price="180">Maras Salineras - S/180</option>
-                  <option value="Montaña de 7 Colores" data-price="220">Montaña de 7 Colores - S/220</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor seleccione un tour.
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="peopleCount" class="form-label">Número de Personas</label>
-                <input type="number" class="form-control" id="peopleCount" min="1" value="1" required>
-                <div class="invalid-feedback">
-                  Por favor ingrese un número válido de personas.
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">
-                  Por favor ingrese un correo electrónico válido.
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="phone" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="phone" pattern="[0-9]{9}" required>
-                <div class="invalid-feedback">
-                  Por favor ingrese un número de teléfono válido (9 dígitos).
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="tourDate" class="form-label">Fecha del Tour</label>
-                <input type="date" class="form-control" id="tourDate" required>
-                <div class="invalid-feedback">
-                  Por favor seleccione una fecha.
-                </div>
-              </div>
-              <div class="col-12 d-flex justify-content-center mt-4">
-                <button type="submit" id="reserveBtn" class="btn btn-success btn-lg px-4">
-                  <i class="bi bi-calendar-check"></i> Reservar Ahora
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Payment Modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header bg-warning text-dark">
-            <h5 class="modal-title" id="paymentModalLabel"><i class="bi bi-credit-card"></i> Pago de Tours</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div id="paymentDetails">
-              <!-- Detalles de la Reserva y del Usuario -->
-              <h4 class="mb-3">Detalles de la Reserva</h4>
-              <p><strong>Tour:</strong> <span id="paymentTour"></span></p>
-              <p><strong>Número de Personas:</strong> <span id="paymentPeople"></span></p>
-              <p><strong>Precio por Persona:</strong> S/ <span id="paymentPrice"></span></p>
-              <p><strong>Total:</strong> S/ <span id="paymentTotal"></span></p>
-              <p><strong>Fecha del Tour:</strong> <span id="paymentDate"></span></p>
-
-              <h4 class="mb-3 mt-4">Datos del Usuario</h4>
-              <p><strong>Correo Electrónico:</strong> <span id="paymentEmail"></span></p>
-              <p><strong>Teléfono:</strong> <span id="paymentPhone"></span></p>
-
-              <h4 class="mb-3 mt-4">Método de Pago</h4>
-              <p><strong>Yape</strong></p>
-              <div class="text-center mt-4">
-                <h4 class="mb-3">Escanea el código QR para pagar con Yape</h4>
-                <img src="imagenes/yape-qr.png" alt="Código QR de Yape" class="img-fluid mb-3" style="max-width: 300px;">
-                <p>Escanea el código QR con la aplicación Yape para completar el pago.</p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="printBtn">Imprimir</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
-  <footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-      <p>&copy; 2023 Agencia de Viajes Cusco. Todos los derechos reservados.</p>
+  ---
+
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+      <div>
+        <h4 class="text-2xl font-bold text-yellow-500 mb-5">TRAVEL AGENCY CUSCO</h4>
+        <p class="text-base leading-relaxed">
+          Tu puerta de entrada a la mística tierra de los Incas. Ofrecemos experiencias auténticas y memorables en Cusco, Perú.
+        </p>
+        <p class="text-sm mt-4">&copy; 2025 TRAVEL AGENCY CUSCO. Todos los derechos reservados.</p>
+      </div>
+      <div>
+        <h4 class="text-2xl font-bold text-white mb-5">Explora</h4>
+        <ul class="space-y-3 text-base">
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Inicio</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Quiénes Somos</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Contacto</a></li>
+          <li><a href="#" class="hover:text-yellow-400 transition-colors duration-200">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-2xl font-bold text-white mb-5">Contáctanos</h4>
+        <ul class="space-y-3 text-base">
+          <li><a href="mailto:info@travelagencycusco.com" class="hover:text-yellow-400 transition-colors duration-200">info@travelagencycusco.com</a></li>
+          <li><a href="tel:+51912345678" class="hover:text-yellow-400 transition-colors duration-200">+51 912 345 678</a></li>
+          <li><span class="text-base">Av. El Sol 123, Cusco, Perú</span></li>
+        </ul>
+        <div class="flex justify-center md:justify-start gap-5 mt-6">
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="Facebook">
+            &#xf09a; </a>
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="Instagram">
+            &#xf16d; </a>
+          <a href="#" class="text-white hover:text-yellow-400 transition-colors duration-200 text-3xl" aria-label="WhatsApp">
+            &#xf232; </a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const quoteForm = document.getElementById('quoteForm');
-      const reservationForm = document.getElementById('reservationForm');
-      const tourSelect = document.getElementById('tourSelect');
-      const peopleCount = document.getElementById('peopleCount');
-      const email = document.getElementById('email');
-      const phone = document.getElementById('phone');
-      const tourDate = document.getElementById('tourDate');
-      const calculateBtn = document.getElementById('calculateBtn');
-      const reserveBtn = document.getElementById('reserveBtn');
-      const quoteResult = document.getElementById('quoteResult');
-      const searchBtn = document.getElementById('searchBtn');
-      const emailSearch = document.getElementById('emailSearch');
-      const reservationHistory = document.getElementById('reservationHistory');
-      const printBtn = document.getElementById('printBtn');
-
-      (function() {
-        'use strict';
-        const forms = document.querySelectorAll('.needs-validation');
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      })();
-
-      calculateBtn.addEventListener('click', function() {
-        if (!tourSelect.value || !peopleCount.value) {
-          alert('Por favor seleccione un tour y especifique el número de personas');
-          return;
-        }
-
-        const selectedOption = tourSelect.options[tourSelect.selectedIndex];
-        const price = parseFloat(selectedOption.getAttribute('data-price'));
-        const people = parseInt(peopleCount.value);
-        const total = price * people;
-
-        document.getElementById('quoteTour').textContent = selectedOption.text.split(' - ')[0];
-        document.getElementById('quotePeople').textContent = people;
-        document.getElementById('quotePrice').textContent = price;
-        document.getElementById('quoteTotal').textContent = total;
-
-        quoteResult.classList.remove('d-none');
-      });
-
-      reservationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        if (!reservationForm.checkValidity()) {
-          return;
-        }
-
-        const selectedOption = tourSelect.options[tourSelect.selectedIndex];
-        const reservation = {
-          tour: selectedOption.text.split(' - ')[0],
-          people: peopleCount.value,
-          price: selectedOption.getAttribute('data-price'),
-          total: parseFloat(selectedOption.getAttribute('data-price')) * parseInt(peopleCount.value),
-          email: email.value,
-          phone: phone.value,
-          date: tourDate.value,
-          timestamp: new Date().toISOString()
-        };
-
-        let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-        reservations.push(reservation);
-        localStorage.setItem('reservations', JSON.stringify(reservations));
-
-        alert('¡Reserva realizada con éxito!');
-        reservationForm.reset();
-        quoteResult.classList.add('d-none');
-
-        // Actualizar detalles de pago
-        document.getElementById('paymentTour').textContent = reservation.tour;
-        document.getElementById('paymentPeople').textContent = reservation.people;
-        document.getElementById('paymentPrice').textContent = reservation.price;
-        document.getElementById('paymentTotal').textContent = reservation.total;
-        document.getElementById('paymentDate').textContent = reservation.date;
-        document.getElementById('paymentEmail').textContent = reservation.email;
-        document.getElementById('paymentPhone').textContent = reservation.phone;
-      });
-
-      searchBtn.addEventListener('click', function() {
-        const email = emailSearch.value.trim();
-        if (!email) {
-          alert('Por favor ingrese un correo electrónico');
-          return;
-        }
-
-        const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-        const userReservations = reservations.filter(reservation => reservation.email === email);
-
-        if (userReservations.length === 0) {
-          reservationHistory.innerHTML = '<p>No se encontraron reservas para este correo electrónico.</p>';
-          return;
-        }
-
-        let html = '<div class="table-responsive"><table class="table table-striped"><thead><tr><th>Tour</th><th>Personas</th><th>Precio</th><th>Total</th><th>Fecha</th></tr></thead><tbody>';
-        userReservations.forEach(reservation => {
-          html += `<tr><td>${reservation.tour}</td><td>${reservation.people}</td><td>S/ ${reservation.price}</td><td>S/ ${reservation.total}</td><td>${reservation.date}</td></tr>`;
-        });
-        html += '</tbody></table></div>';
-        reservationHistory.innerHTML = html;
-      });
-
-      printBtn.addEventListener('click', function() {
-        window.print();
-      });
-    });
-  </script>
 </body>
 </html>
->>>>>>> acdbac6bfc3c502fe6c753ffc24cd19e07ab3565

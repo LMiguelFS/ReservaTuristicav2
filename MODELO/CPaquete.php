@@ -1,113 +1,55 @@
-<?php  
-    class CPaquete {
-        private $idPaquete;
-        private $nombreP ;
-        private $precio ;
-        private $Costo ;
-        private $Ciudad ;
-        private $fechaInicio ;
-        private $fechaTermina ;
-        private $Categoria ;
-        private $Cupos ;
-        private $Vigencia ;
+<?php
+class CPaquete {
+    private $conexion;
 
-        // Constructor
-    public function __construct($idPaquete, $nombreP, $precio, $Costo, $Ciudad, $fechaInicio, $fechaTermina, $Categoria, $Cupos, $Vigencia) {
-        $this->idPaquete = $idPaquete;
-        $this->nombreP = $nombreP;
+    private $titulo, $destino, $fechas, $cupos, $precio, $incluye, $actividades, $atracciones, $duracion, $frase, $itinerario, $imagen;
+
+    public function __construct($conexion, $titulo = null, $destino = null, $fechas = null, $cupos = null, $precio = null, $incluye = null, $actividades = null, $atracciones = null, $duracion = null, $frase = null, $itinerario = null, $imagen = null) {
+        $this->conexion = $conexion;
+
+        $this->titulo = $titulo;
+        $this->destino = $destino;
+        $this->fechas = $fechas;
+        $this->cupos = $cupos;
         $this->precio = $precio;
-        $this->Costo = $Costo;
-        $this->Ciudad = $Ciudad;
-        $this->fechaInicio = $fechaInicio;
-        $this->fechaTermina = $fechaTermina;
-        $this->Categoria = $Categoria;
-        $this->Cupos = $Cupos;
-        $this->Vigencia = $Vigencia;
+        $this->incluye = $incluye;
+        $this->actividades = $actividades;
+        $this->atracciones = $atracciones;
+        $this->duracion = $duracion;
+        $this->frase = $frase;
+        $this->itinerario = $itinerario;
+        $this->imagen = $imagen;
     }
 
-    // Getters
+    public function getTitulo() { return $this->titulo; }
+    public function getDestino() { return $this->destino; }
+    public function getFechas() { return $this->fechas; }
+    public function getCupos() { return $this->cupos; }
+    public function getPrecio() { return $this->precio; }
+    public function getIncluye() { return $this->incluye; }
+    public function getActividades() { return $this->actividades; }
+    public function getAtracciones() { return $this->atracciones; }
+    public function getDuracion() { return $this->duracion; }
+    public function getFrase() { return $this->frase; }
+    public function getItinerario() { return $this->itinerario; }
+    public function getImagen() { return $this->imagen; }
 
-    public function getNombreP() {
-        return $this->nombreP;
+    // Método para obtener todos los paquetes desde la BD
+    public function obtenerTodos() {
+    $sql = "SELECT idPaquete, titulo, destino, fechas, cupos, precio, imagen FROM paquetes";
+    $stmt = $this->conexion->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+    
+
+    public function obtenerPorId($idPaquete) {
+        $sql = "SELECT * FROM paquetes WHERE idPaquete = :idPaquete";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':idPaquete', $idPaquete, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    public function getPrecio() {
-        return $this->precio;
-    }
-
-    public function getCosto() {
-        return $this->Costo;
-    }
-
-    public function getCiudad() {
-        return $this->Ciudad;
-    }
-
-    public function getFechaInicio() {
-        return $this->fechaInicio;
-    }
-
-    public function getFechaTermina() {
-        return $this->fechaTermina;
-    }
-
-    public function getCategoria() {
-        return $this->Categoria;
-    }
-
-    public function getCupos() {
-        return $this->Cupos;
-    }
-
-    public function getVigencia() {
-        return $this->Vigencia;
-    }
-
-    // Setters
-    public function setIdPaquete($idPaquete) {
-        $this->idPaquete = $idPaquete;
-    }
-
-    public function setNombreP($nombreP) {
-        $this->nombreP = $nombreP;
-    }
-
-    public function setPrecio($precio) {
-        $this->precio = $precio;
-    }
-
-    public function setCosto($Costo) {
-        $this->Costo = $Costo;
-    }
-
-    public function setCiudad($Ciudad) {
-        $this->Ciudad = $Ciudad;
-    }
-
-    public function setFechaInicio($fechaInicio) {
-        $this->fechaInicio = $fechaInicio;
-    }
-
-    public function setFechaTermina($fechaTermina) {
-        $this->fechaTermina = $fechaTermina;
-    }
-
-    public function setCategoria($Categoria) {
-        $this->Categoria = $Categoria;
-    }
-
-    public function setCupos($Cupos) {
-        $this->Cupos = $Cupos;
-    }
-
-    public function setVigencia($Vigencia) {
-        $this->Vigencia = $Vigencia;
-    }
-
-    }
-       
-
-
-
-
+}
 ?>
