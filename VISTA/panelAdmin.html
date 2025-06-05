@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/VISTA/CSS y JS/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body class="bg-light">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-primary text-white border-end vh-100 position-fixed" style="width: 240px;">
+        <div class="p-4 border-bottom border-secondary">
+            <div class="d-flex align-items-center">
+                <span class="fs-4 fw-bold">Panel Admin</span>
+            </div>
+        </div>
+        <nav class="p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a href="#" id="showClientes" class="nav-link active text-white px-3 py-2 rounded bg-secondary">
+                        <span class="me-2">🏠</span> Clientes
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" id="showReservas" class="nav-link text-white px-3 py-2 rounded">
+                        <span class="me-2">💰</span> Reservas
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" id="showPaquetes" class="nav-link text-white px-3 py-2 rounded">
+                        <span class="me-2">📦</span> Gestión de paquete 
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" id="showReportes" class="nav-link text-white px-3 py-2 rounded">
+                        <span class="me-2">📊</span> Estadistica
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link text-white px-3 py-2 rounded">
+                        <span class="me-2">⚙️</span> Ajustes
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mt-auto border-top border-secondary p-3">
+            <div class="d-flex align-items-center">
+                <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" alt="Profile" class="rounded-circle me-3 border border-white" width="40" height="40">
+                <div>
+                    <p class="mb-0 fw-medium">Franco</p>
+                    <small class="text-light">Administrador</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto border-top border-secondary p-3">
+            <div class="d-flex align-items-center">
+                <div>
+                    <a href="../VISTA/" class="text-light text-decoration-none" style="background-color: brown;">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" style="margin-left: 240px;">
+        <div class="p-4">
+            <!-- Sección Clientes -->
+            <section id="clientesSection" class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h5 class="mb-0 fw-bold">Todos los clientes</h5>
+                            <p class="text-success mb-0"><small>Miembros Activos</small></p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control client-search" placeholder="Buscar cliente...">
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Documento</th>
+                                <th>Nombre Completo</th>
+                                <th>Sexo</th>
+                                <th>País</th>
+                                <th>Fecha Nacimiento</th>
+                                <th>Estado</th>
+                                <th>Acciones</th> <!-- Nueva columna -->
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-white" id="pagination">
+                    <!-- Pagination will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Sección Reservas (inicialmente oculta) -->
+            <section id="reservasSection" class="card shadow-sm border-0" style="display:none;">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">Todas las reservas</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID Reserva</th>
+                                <th>Documento Cliente</th>
+                                <th>ID Paquete</th>
+                                <th>Código Empleado</th>
+                                <th>Fecha</th>
+                                <th>Tipo de Pago</th>
+                                <th>Cantidad</th>
+                                <th>Total Venta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservasTableBody">
+                            <!-- Contenido generado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección Gestión de Paquetes (inicialmente oculta) -->
+            <section id="paquetesSection" class="card shadow-sm border-0" style="display:none;">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">Gestión de Paquetes</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Costo</th>
+                                <th>Ciudad</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Termina</th>
+                                <th>Categoría</th>
+                                <th>Cupos</th>
+                                <th>Vigencia</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paquetesTableBody">
+                            <!-- Contenido generado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección Reportes (inicialmente oculta) -->
+            <section id="reportesSection" class="card shadow-sm border-0" style="display:none;">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">Reportes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Reservas por Tipo de Pago</h6>
+                            <canvas id="reservasChart"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Paquetes por Vigencia</h6>
+                            <canvas id="paquetesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function listarClientes() {
+            fetch('../CONTROLADOR/clienteControlador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'crud_operation=listar'
+            })
+            .then(response => response.json())
+            .then(clientes => {
+                const tbody = document.getElementById('clientsTableBody');
+                tbody.innerHTML = "";
+                clientes.forEach(cliente => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${cliente.docIdentidadC}</td>
+                        <td>${cliente.Nombre} ${cliente.aPaterno} ${cliente.aMaterno}</td>
+                        <td>${cliente.sexo}</td>
+                        <td>${cliente.pais}</td>
+                        <td>${cliente.fNacimiento ?? '-'}</td>
+                        <td>
+                            <span class="badge bg-success">Activo</span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-warning me-1 btn-editar" data-id="${cliente.docIdentidadC}" title="Editar">
+                                <span class="bi bi-pencil"></span> <!-- Bootstrap Icons -->
+                            </button>
+                            <button class="btn btn-sm btn-danger btn-eliminar" data-id="${cliente.docIdentidadC}" title="Eliminar">
+                                <span class="bi bi-trash"></span>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                // Agregar eventos de eliminar y editar después de poblar la tabla
+                tbody.querySelectorAll('.btn-eliminar').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        if (confirm('¿Seguro que deseas eliminar este cliente?')) {
+                            fetch('../CONTROLADOR/clienteControlador.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: `crud_operation=delete&docIdentidadC=${encodeURIComponent(id)}`
+                            })
+                            .then(response => response.text())
+                            .then(msg => {
+                                alert(msg);
+                                listarClientes();
+                            });
+                        }
+                    });
+                });
+
+                tbody.querySelectorAll('.btn-editar').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        // Aquí puedes abrir un modal o redirigir a una página de edición
+                        window.location.href = `../VISTA/editCliente.html?docIdentidadC=${encodeURIComponent(id)}`;
+                    });
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', listarClientes);
+
+        // Mostrar/Ocultar secciones
+        document.getElementById('showClientes').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('clientesSection').style.display = '';
+            document.getElementById('reservasSection').style.display = 'none';
+            document.getElementById('paquetesSection').style.display = 'none';
+            document.getElementById('reportesSection').style.display = 'none';
+            this.classList.add('bg-secondary', 'active');
+            document.getElementById('showReservas').classList.remove('bg-secondary', 'active');
+            document.getElementById('showPaquetes').classList.remove('bg-secondary', 'active');
+            document.getElementById('showReportes').classList.remove('bg-secondary', 'active');
+        });
+
+        document.getElementById('showReservas').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('clientesSection').style.display = 'none';
+            document.getElementById('reservasSection').style.display = '';
+            document.getElementById('paquetesSection').style.display = 'none';
+            document.getElementById('reportesSection').style.display = 'none';
+            this.classList.add('bg-secondary', 'active');
+            document.getElementById('showClientes').classList.remove('bg-secondary', 'active');
+            document.getElementById('showPaquetes').classList.remove('bg-secondary', 'active');
+            listarReservas();
+        });
+
+        document.getElementById('showPaquetes').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('clientesSection').style.display = 'none';
+            document.getElementById('reservasSection').style.display = 'none';
+            document.getElementById('paquetesSection').style.display = '';
+            document.getElementById('reportesSection').style.display = 'none';
+            this.classList.add('bg-secondary', 'active');
+            document.getElementById('showClientes').classList.remove('bg-secondary', 'active');
+            document.getElementById('showReservas').classList.remove('bg-secondary', 'active');
+            listarPaquetes();
+        });
+
+        document.getElementById('showReportes').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('clientesSection').style.display = 'none';
+            document.getElementById('reservasSection').style.display = 'none';
+            document.getElementById('paquetesSection').style.display = 'none';
+            document.getElementById('reportesSection').style.display = '';
+            this.classList.add('bg-secondary', 'active');
+            document.getElementById('showClientes').classList.remove('bg-secondary', 'active');
+            document.getElementById('showReservas').classList.remove('bg-secondary', 'active');
+            // Aquí puedes agregar la lógica para cargar los datos de los reportes si es necesario
+        });
+
+        // Función para listar reservas
+        function listarReservas() {
+            fetch('../CONTROLADOR/reservaControlador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'crud_operation=listar'
+            })
+            .then(response => response.json())
+            .then(reservas => {
+                const tbody = document.getElementById('reservasTableBody');
+                tbody.innerHTML = "";
+                reservas.forEach(reserva => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${reserva.idReserva}</td>
+                        <td>${reserva.docidentidadC}</td>
+                        <td>${reserva.idPaquete}</td>
+                        <td>${reserva.codEmpleado}</td>
+                        <td>${reserva.fecha}</td>
+                        <td>${reserva.tipoPago}</td>
+                        <td>${reserva.cantidad}</td>
+                        <td>S/. ${parseFloat(reserva.totalVenta).toFixed(2)}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+        }
+
+        // Función para listar paquetes
+        function listarPaquetes() {
+            fetch('../CONTROLADOR/paqueteControlador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'crud_operation=listar'
+            })
+            .then(response => response.json())
+            .then(paquetes => {
+                const tbody = document.getElementById('paquetesTableBody');
+                tbody.innerHTML = "";
+                paquetes.forEach(paquete => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${paquete.idPaquete}</td>
+                        <td>${paquete.nombreP}</td>
+                        <td>S/. ${parseFloat(paquete.precio).toFixed(2)}</td>
+                        <td>S/. ${parseFloat(paquete.Costo).toFixed(2)}</td>
+                        <td>${paquete.Ciudad}</td>
+                        <td>${paquete.fechalnicio}</td>
+                        <td>${paquete.fechaTermina}</td>
+                        <td>${paquete.Categoria}</td>
+                        <td>${paquete.Cupos}</td>
+                        <td>${paquete.Vigencia == 1 ? 'Vigente' : 'No Vigente'}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+        }
+
+        // Gráficos de reportes
+        let reservasChart, paquetesChart;
+
+        function listarReporteReservas() {
+            fetch('../CONTROLADOR/reservaControlador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'crud_operation=reporte'
+            })
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('reservasChart').getContext('2d');
+                if (reservasChart) reservasChart.destroy();
+                reservasChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Reservas por Tipo de Pago',
+                            data: data.values,
+                            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b']
+                        }]
+                    }
+                });
+            });
+        }
+
+        function listarReportePaquetes() {
+            fetch('../CONTROLADOR/paqueteControlador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'crud_operation=reporte'
+            })
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('paquetesChart').getContext('2d');
+                if (paquetesChart) paquetesChart.destroy();
+                paquetesChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Paquetes por Vigencia',
+                            data: data.values,
+                            backgroundColor: ['#1cc88a', '#e74a3b']
+                        }]
+                    }
+                });
+            });
+        }
+
+        document.getElementById('showReportes').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('clientesSection').style.display = 'none';
+        document.getElementById('reservasSection').style.display = 'none';
+        document.getElementById('paquetesSection').style.display = 'none';
+        document.getElementById('reportesSection').style.display = '';
+        this.classList.add('bg-secondary', 'active');
+        listarReporteReservas();
+        listarReportePaquetes();
+});
+    </script>
+</body>
+</html>
