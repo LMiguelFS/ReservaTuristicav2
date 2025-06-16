@@ -133,7 +133,7 @@ function realizarCRUD($operacion, $conn)
                     $resultado = $consulta->get_result();
                     // Verificar si se encontraron resultados
                     if ($resultado->num_rows > 0) {
-                        echo "<script>window.open('../VISTA/reservar.html', '_blank');</script>";
+                        echo "<script>window.open('reservaTuristica/VISTA/reservar.html', '_blank');</script>";
                     } else {
                         echo "<script>alert('No se encuentra registrado');</script>";
                     }
